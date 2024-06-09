@@ -3,6 +3,8 @@ import sys
 import adafruit_dht
 import board
 import django
+import secrets
+
 from django.conf import settings
 from django.http import JsonResponse
 from django.urls import path
@@ -18,6 +20,7 @@ settings.configure(
     INSTALLED_APPS=[
         'django.contrib.contenttypes',
     ],
+    SECRET_KEY=secrets.token_urlsafe(50)
 )
 
 # Setup Django
